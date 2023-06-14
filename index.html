@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Debt</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet" />
+
+    <script src="js/index.js"></script>
+
+    <style>
+        .hd {
+            display: none;
+        }
+
+        .header {
+            background: url('images/header-bg.png');
+            height: 386px;
+            border-bottom: 20px #237575 solid;
+        }
+
+        .header .container {
+            padding-top: 41px;
+        }
+
+        .header button.btn {
+            background: #00FFFF;
+            border-radius: 20px;
+            font-size: 22px;
+            color: black;
+            font-weight: 400;
+            width: 260px;
+            text-transform: capitalize;
+        }
+
+        .header .right {
+            text-align: right;
+        }
+
+        .header h3 {
+            font-size: 72px;
+            font-weight: 700;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .header .lead {
+            font-weight: 400;
+            font-size: 40px;
+            color: white;
+        }
+
+        /** form **/
+
+        .form-container h3 {
+            font-size: 40px;
+            margin-top: 20px;
+            color: #0d0d0d
+        }
+
+        ul.step.list-unstyled {
+            text-align: center;
+        }
+
+        .step-bg {
+            background: #00FFFF !important;
+        }
+
+        ul.step.list-unstyled li {
+            background: #D9D9D9;
+            width: 47px;
+            height: 3px;
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        select.form-select {
+            border: none;
+            box-shadow: 0px 1px 9px #ccc;
+            margin-bottom: 22px;
+            height: 40px;
+        }
+
+        .range .thumb:after {
+            content: "";
+            transform: unset;
+            top: 0;
+            transform: unset;
+            background: none;
+            z-index: -1;
+            width: 60px;
+            height: 20px;
+        }
+
+        span.thumb {
+            background: #b9b9b9;
+            width: 60px !important;
+            height: 29px !important;
+            border-radius: 6px !important;
+            margin-left: -30px !important;
+            margin-top: 10px;
+        }
+
+        span.thumb-value {
+            color: #000000b0 !important;
+            font-size: 14px !important;
+        }
+
+        span.thumb-value:after {
+            content: '$';
+        }
+
+        .dropdown-toggle:after {
+            display: none;
+        }
+
+        datalist#volsettings {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button#dropdownMenuButton {
+            width: 100%;
+            text-align: left;
+            padding-left: 12px;
+            font-size: 16px;
+            font-weight: unset;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+
+        ul.dropdown-menu.show {
+            width: 100%;
+            padding: 20px 10px;
+            height: 140px;
+        }
+
+        button.range-btn {
+            position: absolute;
+            left: 158px;
+            top: 80px;
+            font-size: 17px;
+            background: #00FFFF;
+            border: none;
+            border-radius: 20px;
+            width: 70px;
+        }
+
+
+
+
+
+        /** **/
+
+        input[type=range] {
+            height: 23px;
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 1px;
+            cursor: pointer;
+
+            box-shadow: 1px 1px 1px #000000;
+            background: #FFFFFF;
+            border-radius: 0px;
+            border: 0px solid #000000;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 0px solid #000000;
+            height: 17px;
+            width: 17px;
+            border-radius: 50px;
+            background: #19F7FF;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -8px;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #FFFFFF;
+        }
+
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 1px;
+            cursor: pointer;
+
+            box-shadow: 1px 1px 1px #000000;
+            background: #FFFFFF;
+            border-radius: 0px;
+            border: 0px solid #000000;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 0px solid #000000;
+            height: 17px;
+            width: 17px;
+            border-radius: 50px;
+            background: #00FFFF;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 1px;
+            cursor: pointer;
+
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower {
+            background: #FFFFFF;
+            border: 0px solid #000000;
+            border-radius: 0px;
+            box-shadow: 1px 1px 1px #000000;
+        }
+
+        input[type=range]::-ms-fill-upper {
+            background: #FFFFFF;
+            border: 0px solid #000000;
+            border-radius: 0px;
+            box-shadow: 1px 1px 1px #000000;
+        }
+
+        input[type=range]::-ms-thumb {
+            margin-top: 1px;
+            box-shadow: 0px 0px 0px #000000;
+            border: 0px solid #000000;
+            height: 17px;
+            width: 17px;
+            border-radius: 50px;
+            background: #19F7FF;
+            cursor: pointer;
+        }
+
+        input[type=range]:focus::-ms-fill-lower {
+            background: #FFFFFF;
+        }
+
+        input[type=range]:focus::-ms-fill-upper {
+            background: #FFFFFF;
+        }
+
+
+        /** **/
+
+        ::placeholder {
+            color: rgb(165, 165, 165) !important;
+        }
+
+        input.form-control {
+            border: unset;
+            box-shadow: 0px 1px 9px #ccc;
+            margin-bottom: 20px;
+            height: 40px;
+        }
+
+        .form-container .btn-done {
+            background: #00FFFF;
+            border-radius: 20px;
+            font-size: 22px;
+            color: black;
+            font-weight: 400;
+            width: 100%;
+            text-transform: capitalize;
+        }
+
+        .secure {
+            margin-top: 30px;
+            font-size: 12px;
+        }
+
+        .secure p {
+            margin-top: 30px;
+
+        }
+
+        .hide {
+            display: none
+        }
+
+        /** review **/
+
+        .review {
+            background: url('images/review-bg.png');
+            height: 557px;
+            backdrop-filter: blur(420px);
+        }
+
+
+        .review .container {
+            padding-top: 61px;
+        }
+
+        .review h3 {
+            font-weight: 400;
+            font-size: 40px;
+            padding-bottom: 70px;
+        }
+
+        span.card-review__name:after {
+            content: ' ';
+            width: 20px;
+            height: 24px;
+            background: url(images/shield.png);
+            display: block;
+            position: relative;
+            left: 71px;
+            top: -46px;
+        }
+
+
+        .card-review {
+            background: white;
+            padding: 30px;
+            min-height: 340px;
+            border-radius: 20px;
+        }
+
+        .review .col-md-4 {
+            padding: 40px;
+        }
+
+        .review .row {
+            height: 60px;
+        }
+
+
+        /** footer **/
+
+        .footer {
+            background: #237575;
+        }
+
+        .footer .container {
+            display: flex;
+        }
+
+        .footer .left {
+            font-size: 18px;
+            padding-top: 21px;
+            padding-bottom: 9px;
+        }
+
+        .footer .right {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer .left ul li {
+            padding-right: 40px;
+            color: white;
+        }
+    </style>
+
+
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        #multi-step-form-container {
+            margin-top: 5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pl-0 {
+            padding-left: 0;
+        }
+
+        .button {
+            padding: 0.7rem 1.5rem;
+            border: 1px solid #4361ee;
+            background-color: #4361ee;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            border: 1px solid #0e9594;
+            background-color: #0e9594;
+        }
+
+        .mt-3 {
+            margin-top: 2rem;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+        .form-step {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .font-normal {
+            font-weight: normal;
+        }
+
+        ul.form-stepper {
+            counter-reset: section;
+            margin-bottom: 3rem;
+        }
+
+        ul.form-stepper .form-stepper-circle {
+            position: relative;
+        }
+
+        ul.form-stepper .form-stepper-circle span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        .form-stepper-horizontal {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        ul.form-stepper>li:not(:last-of-type) {
+            margin-bottom: 0.625rem;
+            -webkit-transition: margin-bottom 0.4s;
+            -o-transition: margin-bottom 0.4s;
+            transition: margin-bottom 0.4s;
+        }
+
+        .form-stepper-horizontal>li:not(:last-of-type) {
+            margin-bottom: 0 !important;
+        }
+
+        .form-stepper-horizontal li {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: start;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+        .form-stepper-horizontal li:not(:last-child):after {
+            position: relative;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            height: 1px;
+            content: "";
+            top: 32%;
+        }
+
+        .form-stepper-horizontal li:after {
+            background-color: #dee2e6;
+        }
+
+        .form-stepper-horizontal li.form-stepper-completed:after {
+            background-color: #4da3ff;
+        }
+
+        .form-stepper-horizontal li:last-child {
+            flex: unset;
+        }
+
+        ul.form-stepper li a .form-stepper-circle {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 0;
+            line-height: 1.7rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.38);
+            border-radius: 50%;
+        }
+
+        .form-stepper .form-stepper-active .form-stepper-circle {
+            background-color: #4361ee !important;
+            color: #fff;
+        }
+
+        .form-stepper .form-stepper-active .label {
+            color: #4361ee !important;
+        }
+
+        .form-stepper .form-stepper-active .form-stepper-circle:hover {
+            background-color: #4361ee !important;
+            color: #fff !important;
+        }
+
+        .form-stepper .form-stepper-unfinished .form-stepper-circle {
+            background-color: #f8f7ff;
+        }
+
+        .form-stepper .form-stepper-completed .form-stepper-circle {
+            background-color: #0e9594 !important;
+            color: #fff;
+        }
+
+        .form-stepper .form-stepper-completed .label {
+            color: #0e9594 !important;
+        }
+
+        .form-stepper .form-stepper-completed .form-stepper-circle:hover {
+            background-color: #0e9594 !important;
+            color: #fff !important;
+        }
+
+        .form-stepper .form-stepper-active span.text-muted {
+            color: #fff !important;
+        }
+
+        .form-stepper .form-stepper-completed span.text-muted {
+            color: #fff !important;
+        }
+
+        .form-stepper .label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .form-stepper a {
+            cursor: default;
+        }
+    </style>
+
+
+    <style>
+        @media screen and (max-width:767px) {
+            .header .right {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .header h3 {
+                font-size: 32px;
+                font-weight: 700;
+                color: white;
+                padding-top: 20px;
+            }
+
+            .header .lead {
+                font-weight: 400;
+                font-size: 20px;
+                color: white;
+            }
+
+            .review {
+                background: url(images/review-bg.png);
+                height: 1500px;
+                backdrop-filter: blur(420px);
+            }
+
+            .footer .left {
+                font-size: 14px;
+                padding-top: 21px;
+                padding-bottom: 9px;
+            }
+
+            .footer .right ul {
+                display: flex;
+            }
+
+            button.range-btn {
+                left: 124px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container-fluid header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 left">
+                            <a href="/">
+                                <img src="images/logo.png">
+                            </a>
+                        </div>
+                        <div class="col-md-6 right">
+
+                            <button type="button" class="btn btn-success">
+                                Sign Up
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="text-center">
+                                Get free help filing your taxes
+                            </h3>
+                            <p class="text-center lead">
+                                Average tax refund is $2,000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid form-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 m-auto">
+                    <div class="submit-block hide">
+                        <h3 style="font-size: 33px;" class="text-center" id="advertisersList">Information completed
+                          successfully! Contact us
+                            for a free consultation</h3>
+                        <button class="btn btn-done ">Get a free consultation</button>
+                    </div>
+
+                    <form id="form">
+                        <h3 class="text-center">Take a short survey</h3>
+                        <ul class="step list-unstyled">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+
+                        <select id="debt" class="form-select" aria-label="debt type" onchange="checkDebt(this)">
+                            <option selected disabled>Debt type</option>
+                            <option value="Card debt">Card debt</option>
+                            <option value="Tax debt">Tax debt</option>
+                            <option value="Student debt">Student debt</option>
+                            <option value="Medical debt">Medical debt</option>
+                        </select>
+
+
+                        <div id="amount" class="dropdown hide" name="Amount">
+                            <button class="btn dropdown-toggle form-select" type="button" id="dropdownMenuButton"
+                                data-mdb-toggle="dropdown" aria-expanded="false">
+                                Debt amount
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="range">
+                                    <input type="range" min="1000" max="100000" name="PriceRange" step="1000"
+                                        class="form-range" list="volsettings" id="customRange1">
+                                    <datalist id="volsettings">
+                                        <option>1 000$</option>
+                                        <option>50 000$</option>
+                                        <option>100 000$+</option>
+                                        <button class="range-btn"onclick="checkAmount()">✓</button>
+                                    </datalist>
+                                </div>
+
+                            </ul>
+                        </div>
+
+
+                        <select id="state" class="form-select hide" name="State" aria-label="state"
+                          onchange="checkState(this)">
+                            <option selected>Your State</option>
+                            <option value="AL">AL</option>
+                            <option value="AK">AK</option>
+                            <option value="AR">AR</option>
+                            <option value="AZ">AZ</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DC">DC</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="IA">IA</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="MA">MA</option>
+                            <option value="MD">MD</option>
+                            <option value="ME">ME</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MO">MO</option>
+                            <option value="MS">MS</option>
+                            <option value="MT">MT</option>
+                            <option value="NC">NC</option>
+                            <option value="NE">NE</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NV">NV</option>
+                            <option value="NY">NY</option>
+                            <option value="ND">ND</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VT">VT</option>
+                            <option value="VA">VA</option>
+                            <option value="WA">WA</option>
+                            <option value="WI">WI</option>
+                            <option value="WV">WV</option>
+                            <option value="WY">WY</option>
+                        </select>
+
+
+
+                        <select id="income" class="form-select hide" name="Income" aria-label="debt type"
+                          onchange="checkIncome(this)">
+                            <option selected disabled>Do you have income?</option>
+                            <option value="YES">Yes</option>
+                            <option value="NO">No</option>
+                        </select>
+
+                        <input type="hidden" name="debt" type="text">
+                        <input type="hidden" name="amount" type="tex">
+                        <input type="hidden" name="state" type="text">
+                        <input type="hidden" name="income" type="text">
+                        <input id="email" class="form-control hide" name="email" type="email"
+                            placeholder="Write your email*" required>
+                        <input id="phone" class="form-control hide" name="phone" type="text" placeholder="Phone number*"
+                            required>
+
+
+
+                        <button id="submit" class="btn btn-done hide" type="submit"
+                          onclick="conditionFilter()">Done</button>
+
+
+
+                    </form>
+                    <div class="secure"><img src="images/secure.png">
+                        <p>
+                            By providing my phone number, I understand that I am consenting to receive automated and
+                            manual
+                            text messages and calls from WorkMoney on my mobile phone on a periodic basis. We will
+                            never
+                            charge for text messages, but carrier message and data rates may apply. You can stop
+                            receiving
+                            messages at any time by texting STOP to the address provided in each text. We value your
+                            privacy.
+                            View our full privacy policy here and our SMS terms of service here.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="container-fluid review">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">
+                        Discover what our members are saying
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-review">
+                        <span class="card-review__name">Marta R.<br>
+                            <small>New York</small></span>
+                        <p class="review-text">
+                            "Your presence was a game-changer, combating my isolation with shared information and the
+                            reassurance of unity. A million thank you's for keeping me from despair. Your support is
+                            truly
+                            wonderful!"
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-review">
+                        <span class="card-review__name">Ariel S.<br>
+                            <small>Texas</small></span>
+                        <p class="review-text">
+                            "Being busy with work, I miss a lot of news, but Work Money keeps me updated on everything
+                            in Washington and beyond. Without Work Money, I'd be completely clueless. Their accuracy and
+                            reliability are unmatched. Thank you for your hard work!"
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-review">
+                        <span class="card-review__name">Liza W.<br>
+                            <small>Florida</small></span>
+                        <p class="review-text">
+                            "I joined because of your engaging discussions and user-friendly survey questions. It's
+                            refreshing that you don't ask for money afterward! Thanks for keeping us up-to-date. Your
+                            content is top-notch!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="col-md-6 left">
+                <ul>
+                    <li class="list-item list-inline-item">© All rights reserved Debt 2023</li>
+                    <li class="list-item list-inline-item"><a href="/">About Us</a></li>
+                    <li class="list-item list-inline-item"><a href="/">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 right">
+                <ul>
+                    <li class="list-item list-inline-item"><a href="/"><img src="images/fb.png"></a></li>
+                    <li class="list-item list-inline-item"><a href="/"><img src="images/in.png"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>
